@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Redmart Rails</title>
+    <%= csrf_meta_tags %>
+
+    <meta name="viewport" content="width=device-width">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+    <body>
+
+       <%= render 'layouts/header' %>
+
+      <header class="navbar navbar-fixed-top navbar-inverse">
+        <div class="container">
+
+          <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+      <% end %>
+
+          <%= link_to "Travelado", '#', id: "logo" %>
+          <nav>
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "Home",   '#' %></li>
+              <li><%= link_to "Help",   '#' %></li>
+              <li><%= link_to "Log in", '#' %></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <div class="container">
+        <%= yield %>
+         <%= render 'layouts/footer' %>
+         <%= debug(params) if Rails.env.development? %>
+      </div>
+    </body>
+  </html>
