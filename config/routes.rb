@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
   root 'static_pages#home'
 
   # static pages routes, not connected to models
@@ -10,7 +8,7 @@ Rails.application.routes.draw do
 
   get '/contact', to: 'static_pages#contact'
   get '/signup',  to: 'users#new'
-  get '/signup',  to: 'users#create'
+  post '/signup',  to: 'users#create'
 
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'

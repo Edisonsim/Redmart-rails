@@ -8,6 +8,8 @@
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
 }
+
+
 /* miscellaneous */
 
 .debug_dump {
@@ -23,7 +25,7 @@ $gray-medium-light: #eaeaea;
 /* universal */
 
 body {
-  padding-top: 60px;
+  padding-top: 150px;
 }
 
 section {
@@ -111,6 +113,34 @@ footer {
     }
   }
 }
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
 /* sidebar */
 
 aside {
@@ -138,15 +168,6 @@ aside {
     }
   }
 }
-
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-
-.gravatar_edit {
-  margin-top: 15px;
-}
 /* forms */
 
 input, textarea, select, .uneditable-input {
@@ -159,19 +180,4 @@ input, textarea, select, .uneditable-input {
 
 input {
   height: auto !important;
-}
-
-#error_explanation {
-  color: red;
-  ul {
-    color: red;
-    margin: 0 0 30px 0;
-  }
-}
-
-.field_with_errors {
-  @extend .has-error;
-  .form-control {
-    color: $state-danger-text;
-  }
 }
