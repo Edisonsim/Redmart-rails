@@ -1,2 +1,19 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<% provide(:title, 'All products') %>
+<h1>All products</h1>
+
+<% will_paginate %>
+
+<ul class="users">
+  <% @products.each do |product| %>
+
+    <li>
+      <%= link_to product.name, product %>
+      <% if current_user.admin? %>
+      <%= link_to "delete", product, method: :delete,
+                                    data: { confirm: "You sure?" } %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<% will_paginate %>

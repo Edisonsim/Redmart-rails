@@ -26,3 +26,12 @@ users = User.order(:created_at).take(6)
   content = Faker::Lorem.sentence(5)
   users.each { |user| user.microposts.create!(content: content) }
 end
+
+20.times do |n|
+  name = Faker::Commerce.product_name
+  description = Faker::Lorem.sentence(5)
+  price = Faker::Commerce.price
+  Product.create!(name: name,
+                  description: description,
+                  price: price)
+end

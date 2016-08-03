@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   get 'products/index'
 
-  get 'products/show'
+  # get 'products/show'
 
-  get 'products/edit'
+  # get 'products/edit'
 
   root 'static_pages#home'
 
@@ -16,12 +16,13 @@ Rails.application.routes.draw do
   get '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
 
-  get '/product', to: 'products#new'
-  get '/product', to: 'products#create'
+  get '/products', to: 'products#new'
+  post '/products', to: 'products#create'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users
   resources :microposts, only: [:create, :destroy]
+  resources :products
 end
