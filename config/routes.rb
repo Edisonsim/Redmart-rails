@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'products/index'
+
+  get 'products/show'
+
+  get 'products/edit'
+
   root 'static_pages#home'
 
   # static pages routes, not connected to models
@@ -10,6 +16,8 @@ Rails.application.routes.draw do
   get '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
 
+  get '/product', to: 'products#new'
+  get '/product', to: 'products#create'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
