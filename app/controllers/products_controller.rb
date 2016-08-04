@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
     before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
-    before_action :correct_user,   only: [:edit, :update]
-    before_action :admin_user,     only:  :destroy
+  #  before_action :correct_user,   only: [:edit, :update]
+  #  before_action :admin_user,     only: [:destroy, :edit]
 
     def show
        @product = Product.find(params[:id])
@@ -28,11 +28,12 @@ class ProductsController < ApplicationController
 
      def edit
        @product = Product.find(params[:id])
+      #  render 'form'
      end
 
      def update
        @product = Product.find(params[:id])
-        if @product.update_attributes(user_params)
+        if @product.update_attributes(product_params)
         # Handle a succesful update.
         flash[:success] = "Product updated"
        redirect_to @product
@@ -54,9 +55,8 @@ class ProductsController < ApplicationController
         redirect_to(root_url) unless current_user.admin?
       end
 
-       def user_params
-         params.require(:product).permit(:name, :email, :password,
-                                      :password_confirmation)
+       def product_params
+         params.require(:product).permit(:name, :price, :description)
        end
 
        def logged_in_user

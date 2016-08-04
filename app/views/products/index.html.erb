@@ -1,19 +1,37 @@
 <% provide(:title, 'All products') %>
 <h1>All products</h1>
+<div class="container">
+
 
 <% will_paginate %>
 
 <ul class="users">
+  <div class="col-md-8">
+
+
   <% @products.each do |product| %>
 
     <li>
-      <%= link_to product.name, product %>
+      <%= link_to product.name, product %> <br>
+        $<%= link_to product.price, product %>
+        <%= link_to "add a review", "reviews/new" %>
+
+
       <% if current_user.admin? %>
-      <%= link_to "delete", product, method: :delete,
-                                    data: { confirm: "You sure?" } %>
+
+
+      <p class="admin-option">
+      <!-- <div class="row pull-right"> -->
+        <%= link_to "edit", edit_product_path(product.id)
+                                   %> |
+        <%= link_to "delete", product, method: :delete,
+                                     data: { confirm: "You sure?" } %>
+      </p>
+      <!-- </div> -->
       <% end %>
     </li>
   <% end %>
 </ul>
 
 <% will_paginate %>
+</div>

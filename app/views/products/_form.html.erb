@@ -11,7 +11,7 @@
   <%= f.text_field :description, class: 'form-control' %>
 
   <%= f.label :price %>
-  $<%= f.text_field :price, class: 'form-control' %>
+  <%= f.text_field :price, class: 'form-control' %>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
