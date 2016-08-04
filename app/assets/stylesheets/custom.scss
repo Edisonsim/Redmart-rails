@@ -25,7 +25,13 @@ $gray-medium-light: #eaeaea;
 .navbar {
   background-color: #60ced5;
 }
+.navbar-nav > li > a {
+    color: white !important;
+}
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  background-color: #60ced5 !important;
 
+}
 /* Users index */
 
 .users {

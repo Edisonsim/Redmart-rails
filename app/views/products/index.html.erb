@@ -20,9 +20,7 @@
 
 
       <p class="admin-option">
-      <!-- <div class="row pull-right"> -->
-        <%= link_to "edit", edit_product_path(product.id)
-                                   %> |
+        <%= link_to "edit", edit_product_path(product.id) %> |
         <%= link_to "delete", product, method: :delete,
                                      data: { confirm: "You sure?" } %>
       </p>
