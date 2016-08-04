@@ -2,33 +2,36 @@
 <h1>All products</h1>
 <div class="container">
 
+    <% will_paginate %>
 
-<% will_paginate %>
+    <ul class="users">
+        <div class="col-md-10">
 
-<ul class="users">
-  <div class="col-md-8">
+            <% @products.each do |product| %>
 
+            <p class="product-option">
+                <li>
+                    <%= link_to product.name, product %>
+                    <br>
+                </p>
+                $<%= link_to product.price, product %>
 
-  <% @products.each do |product| %>
+                <p class="user-option">
+                    <%= link_to "add a review", new_review_path(product_id: product.id)  %>
+                </p>
+                <% if current_user.admin? %>
 
-    <li>
-      <%= link_to product.name, product %> <br>
-        $<%= link_to product.price, product %>
-        <%= link_to "add a review", new_review_path(product_id: product.id)  %>
-
-      <% if current_user.admin? %>
-
-
-      <p class="admin-option">
-        <%= link_to "edit", edit_product_path(product.id) %> |
-        <%= link_to "delete", product, method: :delete,
+                <p class="admin-option">
+                    <%= link_to "edit", edit_product_path(product.id) %>
+                    |
+                    <%= link_to "delete", product, method: :delete,
                                      data: { confirm: "You sure?" } %>
-      </p>
-      <!-- </div> -->
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+                </p>
+                <% end %>
+            </li>
+            <% end %>
+        </ul>
 
-<% will_paginate %>
-</div>
+        <% will_paginate %>
+    </div>
+  </div>
