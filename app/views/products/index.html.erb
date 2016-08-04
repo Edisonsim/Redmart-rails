@@ -14,8 +14,7 @@
     <li>
       <%= link_to product.name, product %> <br>
         $<%= link_to product.price, product %>
-        <%= link_to "add a review", "reviews/new" %>
-
+        <%= link_to "add a review", new_review_path(product_id: product.id)  %>
 
       <% if current_user.admin? %>
 

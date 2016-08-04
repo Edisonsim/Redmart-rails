@@ -3,23 +3,24 @@ class ReviewsController < ApplicationController
   before_action :correct_user, only: :destroy
 
   def new
-    @review = Review.new
+    @product = Product.find(params[:product_id])
+    @review = Review.new(product_id: params[:product_id])
     @feed_items = current_user.feed.paginate(page: params[:page])
-
   end
-def show
 
+def show
   @review = current_user.reviews.build
   @feed_items = current_user.feed.paginate(page: params[:page])
 end
+
   def create
-    @review = current_user.reviews.build(review_params)
+    # p review_params
+    @review = current_user.reviews.build(content: review_params[:content], product_id: review_params[:product_id], user_id: current_user.id)
     if @review.save
+      # p 'review was saved'
       flash[:success] = "Review created!"
-      redirect_to '/reviews'
-    else
-       @feed_items = []
-      render 'reviews/new'
+      @product = Product.find(review_params[:product_id])
+      redirect_to @product
     end
   end
 
@@ -31,8 +32,10 @@ end
 
   private
 
+
+
     def review_params
-      params.require(:review).permit(:content, :picture)
+      params.require(:review).permit(:content, :product_id)
     end
 
     def correct_user

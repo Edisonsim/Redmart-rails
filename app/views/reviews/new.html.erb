@@ -1,26 +1,14 @@
 <% provide(:title, "New review") %>
 <% provide(:button_text, "Save changes") %>
-<h1>Update Review</h1>
+<h1>New review</h1>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-      <%# render 'review' %>
-     <%= form_for(@review, url: reviews_path) do |f| %>
-     <%= render 'shared/error_messages', object: f.object %>
-    <% end %>
-  </div>
+<div>
+  <p>Product to review</p>
+  <p>Product Name: <%= @product.name %> </p>
+  <p>Product Price: <%= @product.price  %></p>
 
-</div>
-<div class="row">
-  <aside class="col-md-4">
-  
-
-  </aside>
   <section class="review_form">
   <%= render 'shared/review_form' %>
   </section>
 
-<div class="col-md-8">
- <h3>Reviews Feed</h3>
- <%= render 'shared/feed' %>
 </div>

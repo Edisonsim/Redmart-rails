@@ -1,20 +1,10 @@
-<div class="row">
   <aside class="col-md-4">
     <section class="user_info">
       <h1><%= @product.name %></h1>
         <ul>
-          <%= @product.reviews.each  do |review| %>
-          <li>review.content</li>
+          <%= @product.reviews.find_each  do |review| %>
+          <li><%= review.content %></li>
           <% end %>
         </ul>
     </section>
   </aside>
-  <div class="col-md-8">
-    <% if @product.reviews.any? %>
-      <h3>Total reviews: (<%= @product.reviews.count %>)</h3>
-      <ol class="posts">
-        <%#= render @reviews %>
-      </ol>
-    <% end %>
-  </div>
-</div>
