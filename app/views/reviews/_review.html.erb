@@ -1,14 +1,14 @@
-<li id="reviews-<%= reviews.id %>">
-  <span class="user"><%= link_to reviews.user.name, reviews.user %></span>
+<li id="review<%= review.id %>">
+  <span class="reviews"><%= link_to review.user.name, review.user %></span>
   <span class="content">
-    <%= reviews.content %>
-    <%= image_tag reviews.picture.url if reviews.picture? %>
+    <%= review.content %>
+    <%= image_tag review.picture.url if review.picture? %>
   </span>
 
   <span class="timestamp">
-    Posted <%= time_ago_in_words(reviews.created_at) %> ago.
-    <% if current_user?(reviews.user) %>
-      <%= link_to "delete", reviews, method: :delete,
+    Posted <%= time_ago_in_words(review.created_at) %> ago.
+    <% if current_user?(review.user) %>
+      <%= link_to "delete", review, method: :delete,
                                        data: { confirm: "You sure?" } %>
     <% end %>
   </span>

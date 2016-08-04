@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :microposts, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   before_save { self.email = email.downcase }
 
@@ -16,7 +16,7 @@ class User < ApplicationRecord
   # Defines a proto-feed.
     # See "Following users" for the full implementation.
     def feed
-      Micropost.where("user_id = ?", id)
+      Review.where("user_id = ?", id)
     end
 
   # Returns the hash digest of the given string.

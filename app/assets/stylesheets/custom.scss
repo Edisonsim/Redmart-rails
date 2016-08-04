@@ -20,6 +20,12 @@
 
 $gray-medium-light: #eaeaea;
 
+/* Nav */
+// 
+// .navbar {
+//   background-color: #60ced5;
+// }
+
 /* Users index */
 
 .users {
@@ -28,7 +34,7 @@ $gray-medium-light: #eaeaea;
   li {
     overflow: auto;
     padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: 2px solid $gray-lighter;
   }
 }
 /* universal */
@@ -92,7 +98,7 @@ p {
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: white;
+    color: yellow;
     text-decoration: none;
   }
 }
@@ -191,9 +197,9 @@ input {
   height: auto !important;
 }
 
-/* microposts */
+/* reviews */
 
-.microposts {
+.reviews {
   list-style: none;
   padding: 0;
   li {

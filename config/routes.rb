@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   get 'products/index'
 
-  # get 'products/show'
-
-  # get 'products/edit'
-
   root 'static_pages#home'
 
   # static pages routes, not connected to models
@@ -18,11 +14,15 @@ Rails.application.routes.draw do
 
   get '/products', to: 'products#new'
   post '/products', to: 'products#create'
+
+  # get '/reviews', to: 'reviews#new'
+  # post '/reviews', to: 'reviews#create'
+
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users
-  resources :microposts, only: [:create, :destroy]
+  resources :reviews, only: [:create, :destroy]
   resources :products
 end
