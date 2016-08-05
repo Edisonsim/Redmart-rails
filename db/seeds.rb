@@ -21,12 +21,6 @@
                password_confirmation: password)
 end
 
-users = User.order(:created_at).take(6)
-50.times do
-  content = Faker::Lorem.sentence(5)
-  users.each { |user| user.reviews.create!(content: content) }
-end
-
 20.times do |n|
   name = Faker::Commerce.product_name
   description = Faker::Lorem.sentence(5)
@@ -34,4 +28,10 @@ end
   Product.create!(name: name,
                   description: description,
                   price: price)
+end
+
+users = User.order(:created_at).take(6)
+50.times do
+  content = Faker::Lorem.sentence(5)
+  users.each { |user| user.reviews.create!(content: content) }
 end
