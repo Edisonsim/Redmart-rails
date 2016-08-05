@@ -35,7 +35,7 @@ end
 
 users = User.order(:created_at).take(no_of_users)
 users.each do |user|
-  10.times do |n|
+  2.times do |n|
     user.reviews.create!(
     content: Faker::Lorem.sentence(5),
     product_id: rand(1..no_of_products)
