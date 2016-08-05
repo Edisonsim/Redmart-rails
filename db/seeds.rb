@@ -11,7 +11,7 @@
 #              password_confirmation: "foobar",
 #              admin: true)
 #
-99.times do |n|
+20.times do |n|
   name  = Faker::Name.name
   email = "examples-#{n+1}@railstutorial.org"
   password = "password"
@@ -30,8 +30,13 @@ end
                   price: price)
 end
 
-users = User.order(:created_at).take(6)
-50.times do
-  content = Faker::Lorem.sentence(5)
-  users.each { |user| user.reviews.create!(content: content) }
+users = User.order(:created_at).take(20)
+content = Faker::Lorem.sentence(5)
+users.each do |user|
+  10.times do |n|
+    user.reviews.create!(
+    content: content,
+    product_id: rand(1..20)
+    )
+  end
 end
