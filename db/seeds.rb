@@ -31,11 +31,10 @@ end
 end
 
 users = User.order(:created_at).take(20)
-content = Faker::Lorem.sentence(5)
 users.each do |user|
   10.times do |n|
     user.reviews.create!(
-    content: content,
+    content: Faker::Lorem.sentence(5),
     product_id: rand(1..20)
     )
   end
