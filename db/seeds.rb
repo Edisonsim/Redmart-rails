@@ -11,7 +11,7 @@
 #              password_confirmation: "foobar",
 #              admin: true)
 #
-20.times do |n|
+15.times do |n|
   name  = Faker::Name.name
   email = "examples-#{n+1}@railstutorial.org"
   password = "password"
@@ -21,7 +21,7 @@
                password_confirmation: password)
 end
 
-20.times do |n|
+15.times do |n|
   name = Faker::Commerce.product_name
   description = Faker::Lorem.sentence(5)
   price = Faker::Commerce.price
